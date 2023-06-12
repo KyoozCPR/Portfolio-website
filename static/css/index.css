@@ -1,0 +1,101 @@
+
+
+
+.Description #Name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5em;
+}
+.Description #Statement {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    margin-top: 3em;
+}
+
+.popup_selector {
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+}
+
+.popup_selector #explore {
+    background-color: yellowgreen;
+    border: 2px solid #89af4c;
+    font-size: 18px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+}
+
+.popup_selector #explore:hover {
+    background-color: white;
+}
+
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 35em;
+    width: 35em;
+    border-radius: 25px;
+    background-color: #202124;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#popup-navigation {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 25px;
+    color: #ffff;
+}
+
+#popup-navigation #close-popup {
+    margin-top: 2em;
+    height: 40px;
+    width: 40px;
+    border-radius: 25px;
+    background-color: #ffffff;
+    transition-duration: 0.5s;
+
+}
+
+#popup-navigation #close-popup:hover {
+    background-color: #202124;
+    color: #ffffff;
+    padding: 4.5px;
+    border: 3px solid yellowgreen; 
+}
+
+.popup #start h4{
+    margin-top: 5em;
+    text-align: center;
+    font-size: 21px;
+    font-weight: normal;
+    color: #89af4c;
+}
+.popup #explore {
+    margin-top: 5em;
+    display: flex;
+    justify-content: center;
+
+}
+
+.popup #explore-popup {
+    border-radius: 10px;
+    border: 2px;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-weight: normal;
+    transition-duration: 0.5s;
+}
+
+.popup #explore-popup:hover {
+    background-color: yellowgreen;
+
+
+}

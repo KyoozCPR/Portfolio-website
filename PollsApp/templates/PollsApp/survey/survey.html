@@ -1,0 +1,71 @@
+{% extends 'main.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/survey.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Poppins:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+<body>
+    <div id="main">
+        <button id="back" >
+            <a href="{% url 'index' %}">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+        </button>
+        <h1>Rispondi a questo sondaggio ...</h3>
+    </div>
+    
+    <div class="survey">
+        <div id="board">
+            <div class="questions">
+                <div id="question1" style="display: block;">
+                    <h2>Sto Cazzo?</h2>
+                    <ul class="options" onclick="">
+                        <li><button id="option-1">daje roma1</button></li>
+                        <li><button id="option-1">daje roma2</button></li>
+                        <li><button id="option-1">daje roma3</button></li>
+                        <li><button id="option-1">daje roma4</button></li>
+                    </ul>
+                </div>
+
+                <div id="question2" style="display: none;">
+                    <h2>Sto Cazzo?</h2>
+                    <ul class="options">
+                        <li><button id="option-1">daje roma1</button></li>
+                        <li><button id="option-1">daje roma2</button></li>
+                        <li><button id="option-1">daje roma3</button></li>
+                        <li><button id="option-1">daje roma4</button></li>
+                    </ul>
+                </div>
+                <div id="question3" style="display: none;">
+                    <h2>Sto Cazzo?</h2>
+                    <ul class="options">
+                        <li><button id="option-1">daje roma1</button></li>
+                        <li><button id="option-1">daje roma2</button></li>
+                        <li><button id="option-1">daje roma3</button></li>
+                        <li><button id="option-1">daje roma4</button></li>
+                    </ul>
+                </div>
+                <div id="finale" style="display: none;">
+                    <h2>Sto Cazzo?</h2>
+                    <ul class="options">
+                        <li><button id="option-1">daje roma1</button></li>
+                        <li><button id="option-1">daje roma2</button></li>
+                        <li><button id="option-1">daje roma3</button></li>
+                        <li><button id="option-1">daje roma4</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    {% block head %}
+
+    {% endblock %}
+</head>
+<body id="bodywrapper">
+    <style>
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+    
+        }
+
+        nav img {
+            height: 70px;
+            margin-left: 5em;
+            border-radius: 50%;
+           
+        }
+        
+        .navigation-container { 
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            height: 70px;
+            background-color: rgb(33, 33, 33);
+        }
+        
+        
+        
+        .navigation-container ul {
+            display: flex;
+            margin-right: 5em;
+            margin-top: 0.5em;
+            list-style: none;
+        
+        }
+        
+        
+        .navigation-container li {
+            margin: 10px;
+        }
+        
+        
+        .navigation-container #search {
+            margin-top: 3px;
+            color: yellowgreen;
+        
+        }
+        
+        
+        .navigation-container a {
+            text-decoration: none;
+            font-size: 20px;
+            color: #fff;
+        }    
+    
+    </style>
+    
+    
+    <nav>
+        <div class="navigation-container">
+                <img src="{% static 'images/logotech.png' %}" alt="">
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">
+                    
+                        <span id="search" class="material-symbols-outlined">
+                            search
+                        </span>
+                    </a>
+                    </li>
+                
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">Projects</a></li>
+                    <li><a href="{% url 'signup' %}">Signup</a></li>
+                </ul>
+            </div>
+    </nav>
+    
+    
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

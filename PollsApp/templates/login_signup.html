@@ -1,0 +1,88 @@
+
+<style>
+    body {
+        min-height: 100vh;
+        font-family: 'Inter', sans-serif;
+        font-family: 'Poppins', sans-serif;
+       
+    }
+
+    #logtext {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    #textform {
+        margin-bottom: 2em;
+        font-style: normal;
+        font-weight: 650;
+        font-size: 20.5274px;
+        line-height: 36px;
+        color: #3D3D3D;
+    }
+
+    #loginform {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 470px;
+        height: 504px;  
+        border-radius: 25px;
+        background-color: #ffffff;
+        
+        box-shadow: 0px 4px 22px -9px rgba(0, 0, 0, 0.7);
+    }
+
+    #sumbitbutton {
+        margin-top: 2em;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17.6241px;
+        line-height: 22px;
+        width: 373px;
+        height: 41px;
+        border-color: transparent;
+        background: #307CEE;
+        border-radius: 11px;
+    }
+
+    .widgets-field {
+        font-family: 'Poppins', sans-serif;
+        width: 373px;
+        height: 35px;
+        border-top-width: 0;
+        border-left-width: 0;
+        border-right-width: 0;
+        border-color: #B5B5B5;
+        color: #B5B5B5;
+    }
+
+   
+
+
+</style>
+
+<div id="loginform">
+    
+
+    <form method="post">
+            <div id="logtext">
+                <h1 id="textform">Accedi al portale</h1>
+            </div>
+            
+            {% block content %}
+            
+            {% endblock %}
+
+        <br>
+        <input id="sumbitbutton" type="submit" value="Submit">
+    </form>
+</div>
