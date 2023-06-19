@@ -7,7 +7,7 @@ import django.contrib.sessions
 
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-from .forms import LoginForm
+from .forms import SignUpForm
 
 
 
@@ -33,14 +33,14 @@ def signup(request: HttpRequest):
     """
 
         CHECK IF THE FORM WAS SENT WITH THE POST METHOD AND 
-        CREATE A NEW ISTANCE OF THE LoginForm() object PASSING THE DATA FROM THE REQUEST 
+        CREATE A NEW ISTANCE OF THE SignUpForm() object PASSING THE DATA FROM THE REQUEST 
         AND SAVE IT INTO THE DATABASE 
 
     """
 
 
     if request.method == "POST":
-        form = LoginForm(request.POST)
+        form = SignUpForm(request.POST)
 
         if form.is_valid():
             
@@ -56,7 +56,7 @@ def signup(request: HttpRequest):
                 return shortcut.redirect('index')
 
     else:
-        form = LoginForm()
+        form = SignUpForm()
 
     
     authenticated_notification = request.session.get("Notification_error")

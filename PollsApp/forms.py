@@ -29,9 +29,10 @@ class BaseForm(forms.Form):
       )
 
 
+
 """
-    class used to rapresent a form, where each attribute is a different (the input logic for the user)
-    and each field is assigned to a specif html input type through a widget
+    class used to rapresent a form, where each attribute is a different field (the input logic for the user)
+    and each field is assigned to a specific html input type through a widget
     and we can access the data passed by the user using the method cleaned_data()
     so that we can create o check a user in a data 
 """
@@ -40,12 +41,15 @@ class BaseForm(forms.Form):
 class SignUpForm(BaseForm):
 
     user_email = forms.EmailField(
-
+        required=False,
         label="Email", 
         max_length=150,
         widget=forms.EmailInput(attrs={'placeholder':'Enter your email'})
         )
     
+
+
+
   
     
 
