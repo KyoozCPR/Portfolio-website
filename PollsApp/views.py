@@ -7,7 +7,7 @@ import django.contrib.sessions
 
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-from .forms import SignUpForm
+from .forms import SignUpForm, BaseForm
 
 
 
@@ -61,12 +61,35 @@ def signup(request: HttpRequest):
     
     authenticated_notification = request.session.get("Notification_error")
   
-    return shortcut.render(request, "PollsApp/Login/login.html", {"form": form, "not_authenticaded_message": authenticated_notification})
+    return shortcut.render(request, "PollsApp/signup/signup.html", {"form": form, "not_authenticaded_message": authenticated_notification})
 
 
 
 def login(request):
-    pass
+    
+    if request.method == "POST":
+        form = BaseForm(request.POST)
+        
+        if form.is_valid():
+            
+            if not(form.cleaned_data.items() in User.objects.values()):
+                
+                new_user = User.objects.get(
+                    form.cleaned_data.get("username"),
+                    form.cleaned_data.get("user_email"),
+                    form.cleaned_data.get("password"),
+                    )
+                
+
+                return shortcut.redirect('index')
+
+    else:
+        form = BaseForm()
+
+    
+  
+  
+    return shortcut.render(request, "PollsApp/Login/login.html", {"form": form})
 
 
 def greeting(request):
