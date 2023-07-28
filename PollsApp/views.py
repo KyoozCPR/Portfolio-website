@@ -2,11 +2,9 @@ import django.shortcuts as shortcut
 from django.http import HttpResponse, HttpRequest,  Http404
 from django.core.exceptions import ObjectDoesNotExist
 from django.template import loader
-
 import django.contrib.sessions
-
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.models import User
+from .models import User 
 from .forms import SignUpForm, BaseForm
 
 
@@ -14,10 +12,9 @@ from .forms import SignUpForm, BaseForm
 
 
 # Create your views here.
-def index(request):
-    index_template = loader.get_template('PollsApp/home/index.html')
-    
-    return HttpResponse(index_template.render())
+def index(request: HttpRequest):
+    return shortcut.render(request, 'PollsApp/home/index.html')
+
 
 def about(request):
     
@@ -38,30 +35,43 @@ def signup(request: HttpRequest):
 
     """
 
+    if request.user.is_authenticated == True:
+        request.session["Authenticated_Message": "You are already authenticated"]
+        shortcut.redirect("index")
+
 
     if request.method == "POST":
+
+
         form = SignUpForm(request.POST)
+        form.save()
 
-        if form.is_valid():
-            
-            if not(form.cleaned_data.items() in User.objects.values()):
+        authenticated_user = authenticate(
+            username = form.cleaned_data.get("username"), 
+            password = form.cleaned_data.get("password")
+            )
+        
+        if authenticated_user is not None:
+            login(request, authenticated_user)
+
+    
+        return shortcut.redirect('index')
                 
-                new_user = User.objects.create_user(
-                    form.cleaned_data.get("username"),
-                    form.cleaned_data.get("user_email"),
-                    form.cleaned_data.get("password"),
-                    )
-
-
-                return shortcut.redirect('index')
-
     else:
         form = SignUpForm()
 
     
-    authenticated_notification = request.session.get("Notification_error")
   
-    return shortcut.render(request, "PollsApp/signup/signup.html", {"form": form, "not_authenticaded_message": authenticated_notification})
+    return shortcut.render(
+        request, 
+        "PollsApp/signup/signup.html",
+
+        { 
+            "form": form,
+
+    
+        }
+        )
 
 
 
@@ -71,21 +81,25 @@ def login(request):
         form = BaseForm(request.POST)
         
         if form.is_valid():
-            
-            if not(form.cleaned_data.items() in User.objects.values()):
-                
-                new_user = User.objects.get(
+
+
+                new_user = User.objects.filter(
                     form.cleaned_data.get("username"),
-                    form.cleaned_data.get("user_email"),
-                    form.cleaned_data.get("password"),
-                    )
-                
+                    form.cleaned_data.get("password")
+                    )                
 
                 return shortcut.redirect('index')
 
     else:
         form = BaseForm()
 
+
+def logout(request: HttpRequest):
+
+    signup_message = request.session.get("Authenticated_Message")
+
+    if signup_message != None:
+        return shortcut.render(request, 'PollsApp/home/index.html', {"allert" : signup_message})
     
   
   
@@ -106,3 +120,4 @@ def search_user(request: HttpRequest, pk):
     else:
         request.session["Notification_error"] = "You are not authenticated"
         return shortcut.redirect("signup")
+    

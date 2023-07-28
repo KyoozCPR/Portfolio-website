@@ -1,26 +1,39 @@
 {% extends 'login_signup.html' %}
 
+
+
+
+
 {% block content %}
 
+{{ not_authenticaded_message }}
 
-{% for field in form %}
-{{ field.errors }}
-{% endfor %}
 
 {% csrf_token %}
+
+
 <div class="fields">
-<div id="username">
-    {{form.username}}
+    {% for error in form.username.errors %}
+        <div class="errorlist">{{ error }}</div>
+    {% endfor %}
 
-</div>
-<div id="email">
-    {{form.user_email}}
+    <div id="username">
+        {{form.username}}
+    
+    </div>
 
-</div>
-<div id="password">
+    {% for error in form.email.errors %}
+        <div class="errorlist">{{ error }}</div>
+    {% endfor %}
+    
+    <div id="email">
+        {{form.email}}
 
-    {{form.password}}
-</div>
+    </div>
+    <div id="password">
+
+        {{form.password}}
+    </div>
 </div>
 
 {% endblock %}
