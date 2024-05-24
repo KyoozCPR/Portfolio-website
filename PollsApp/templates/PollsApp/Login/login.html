@@ -1,11 +1,11 @@
 {% extends 'login_signup.html' %}
 
 {% block content %}
-
-
 {% for field in form %}
 {{ field.errors }}
 {% endfor %}
+
+{{ not_authenticaded_message }}
 
 {% csrf_token %}
 <div class="fields">

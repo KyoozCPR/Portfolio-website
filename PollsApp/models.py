@@ -53,8 +53,7 @@ class UserManagerCustom(BaseUserManager):
 class User(AbstractBaseUser):
 
     username = models.CharField(max_length=30, blank=False, unique=True)
-    email    = models.EmailField(max_length=150, blank=False, unique=True, validators=[clean_email])
-    image_profile = models.ImageField(defa)
+    email    = models.EmailField(max_length=150, blank=False, unique=True, validators=[clean_email], default="string")
     is_admin = models.BooleanField(default=False)
     objects  = UserManagerCustom()
 
@@ -63,6 +62,7 @@ class User(AbstractBaseUser):
     EMAIL_FIELD = "email"
     REQUIRED_FIELDS = []
 
+   
     
         
 

@@ -5,7 +5,7 @@ from django.template import loader
 import django.contrib.sessions
 from django.contrib.auth import authenticate, login
 from .models import User 
-from .forms import SignUpForm, BaseForm
+from .forms import SignUpForm, BaseForm, LoginForm
 
 
 
@@ -42,21 +42,24 @@ def signup(request: HttpRequest):
 
     if request.method == "POST":
 
-
         form = SignUpForm(request.POST)
-        form.save()
 
-        authenticated_user = authenticate(
-            username = form.cleaned_data.get("username"), 
-            password = form.cleaned_data.get("password")
-            )
-        
-        if authenticated_user is not None:
-            login(request, authenticated_user)
+        if form.is_valid():
+            form.save()
 
-    
-        return shortcut.redirect('index')
-                
+            authenticated_user = authenticate(
+                username = form.cleaned_data.get("username"), 
+                password = form.cleaned_data.get("password")
+                )
+
+            if authenticated_user is None:
+                login(request, authenticated_user)
+                return shortcut.redirect('index')
+
+            else:
+                request.session["already_exist": "This User already exists!"]
+
+
     else:
         form = SignUpForm()
 
@@ -75,24 +78,37 @@ def signup(request: HttpRequest):
 
 
 
-def login(request):
+def login_func(request):
     
     if request.method == "POST":
-        form = BaseForm(request.POST)
+        form = LoginForm(request.POST)
         
         if form.is_valid():
 
 
-                new_user = User.objects.filter(
-                    form.cleaned_data.get("username"),
-                    form.cleaned_data.get("password")
-                    )                
-
+            authenticated_user = authenticate(
+            username = form.cleaned_data.get("username"), 
+            password = form.cleaned_data.get("password")
+            )
+            if authenticated_user is not None:
+                login(request, authenticated_user)
                 return shortcut.redirect('index')
+            else: 
+                request.session["Notification_error"] = "You are not authenticated"
 
     else:
-        form = BaseForm()
+        form = LoginForm()
 
+    return shortcut.render(
+        request, 
+        "PollsApp/Login/login.html",
+
+        { 
+            "form": form,
+
+    
+        }
+        )
 
 def logout(request: HttpRequest):
 
