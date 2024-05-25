@@ -1,71 +1,164 @@
 {% extends 'main.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/survey.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Poppins:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-</head>
+{% block head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Poppins:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}  
 <body>
-    <div id="main">
-        <button id="back" >
-            <a href="{% url 'index' %}">
-                <span class="material-symbols-outlined">arrow_back</span>
-            </a>
-        </button>
-        <h1>Rispondi a questo sondaggio ...</h3>
-    </div>
+    {% block content %}
     
-    <div class="survey">
-        <div id="board">
-            <div class="questions">
-                <div id="question1" style="display: block;">
-                    <h2>Sto Cazzo?</h2>
-                    <ul class="options" onclick="">
-                        <li><button id="option-1">daje roma1</button></li>
-                        <li><button id="option-1">daje roma2</button></li>
-                        <li><button id="option-1">daje roma3</button></li>
-                        <li><button id="option-1">daje roma4</button></li>
-                    </ul>
-                </div>
+    <style>
+        body {
+  margin:0;
+  padding:0;
+  background: #ebebeb;
+}
+#socials ul {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  display:flex;
+}
+#socials ul li {
+  list-style:none;
+}
+#socials ul li a {
+  display:block;
+  position:relative;
+  width:100px;
+  height:100px;
+  line-height:100px;
+  font-size:40px;
+  text-align:center;
+  text-decoration:none;
+  color:#404040;
+  margin: 0 30px;
+  transition:.5s;
+}
+#socials ul li a span {
+  position:absolute;
+  transition: transform .5s;
+}
+#socials ul li a span:nth-child(1),
+#socials ul li a span:nth-child(3){
+  width:100%;
+  height:3px;
+  background:#404040;
+}
+#socials ul li a span:nth-child(1) {
+  top:0;
+  left:0;
+  transform-origin: right;
+}
+#socials ul li a:hover span:nth-child(1) {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition:transform .5s;
+}
 
-                <div id="question2" style="display: none;">
-                    <h2>Sto Cazzo?</h2>
-                    <ul class="options">
-                        <li><button id="option-1">daje roma1</button></li>
-                        <li><button id="option-1">daje roma2</button></li>
-                        <li><button id="option-1">daje roma3</button></li>
-                        <li><button id="option-1">daje roma4</button></li>
-                    </ul>
-                </div>
-                <div id="question3" style="display: none;">
-                    <h2>Sto Cazzo?</h2>
-                    <ul class="options">
-                        <li><button id="option-1">daje roma1</button></li>
-                        <li><button id="option-1">daje roma2</button></li>
-                        <li><button id="option-1">daje roma3</button></li>
-                        <li><button id="option-1">daje roma4</button></li>
-                    </ul>
-                </div>
-                <div id="finale" style="display: none;">
-                    <h2>Sto Cazzo?</h2>
-                    <ul class="options">
-                        <li><button id="option-1">daje roma1</button></li>
-                        <li><button id="option-1">daje roma2</button></li>
-                        <li><button id="option-1">daje roma3</button></li>
-                        <li><button id="option-1">daje roma4</button></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+#socials ul li a span:nth-child(3) {
+  bottom:0;
+  left:0;
+  transform-origin: left;
+}
+#socials ul li a:hover span:nth-child(3) {
+  transform: scaleX(0);
+  transform-origin: right;
+  transition:transform .5s;
+}
+
+#socials ul li a span:nth-child(2),
+#socials ul li a span:nth-child(4){
+  width:3px;
+  height:100%;
+  background:#404040;
+}
+#socials ul li a span:nth-child(2) {
+  top:0;
+  left:0;
+  transform:scale(0);
+  transform-origin: bottom;
+}
+#socials ul li a:hover span:nth-child(2) {
+  transform: scale(1);
+  transform-origin: top;
+  transition:transform .5s;
+}
+#socials ul li a span:nth-child(4) {
+  top:0;
+  right:0;
+  transform:scale(0);
+  transform-origin: top;
+}
+#socials ul li a:hover span:nth-child(4) {
+  transform: scale(1);
+  transform-origin: bottom;
+  transition:transform .5s;
+}
+
+#socials .github:hover {
+  color: #3b5998;
+}
+#socials .github:hover span { 
+  background: #3b5998;
+}
+#socials .instagram:hover {
+  color: #c32aa3;
+}
+#socials .instagram:hover span { 
+  background: #c32aa3;
+}
+#socials .twitter:hover {
+  color: #32b0bc;
+}
+#socials .twitter:hover span { 
+  background: #32b0bc;
+}
+#socials ul li a:hover:nth-child(3) {
+  color: #c32aa3;
+}
+#socials ul li a:hover:nth-child(4) {
+  color: #32b0bc;
+}
+    </style>
+    <div id="socials">
+    <ul>
+        <li>
+          <a class="github" href="https://github.com/KyoozCPR">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <i class="fa fa-github"></i>
+          </a>
+        </li>
+        <li>
+          <a class="instagram" href="https://www.instagram.com/">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a class="twitter" href="https://twitter.com/CipriettiDiego">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+      </div>
+      {% endblock %}
 </body>
-</html>

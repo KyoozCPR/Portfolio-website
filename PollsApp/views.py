@@ -21,7 +21,7 @@ def about(request):
     return shortcut.render(request, 'PollsApp/about/about.html')
 
 
-def survey(request):
+def contacts(request):
     return shortcut.render(request, "PollsApp/survey/survey.html")
 
 
