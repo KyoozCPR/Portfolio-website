@@ -45,20 +45,17 @@ def signup(request: HttpRequest):
         form = SignUpForm(request.POST)
 
         if form.is_valid():
-            form.save()
+            user = form.save()
+            user.save()
 
             authenticated_user = authenticate(
                 username = form.cleaned_data.get("username"), 
                 password = form.cleaned_data.get("password")
                 )
 
-            if authenticated_user is None:
+            if authenticated_user is not None:
                 login(request, authenticated_user)
                 return shortcut.redirect('index')
-
-            else:
-                request.session["already_exist": "This User already exists!"]
-
 
     else:
         form = SignUpForm()
@@ -69,12 +66,7 @@ def signup(request: HttpRequest):
         request, 
         "PollsApp/signup/signup.html",
 
-        { 
-            "form": form,
-
-    
-        }
-        )
+        {"form": form})
 
 
 

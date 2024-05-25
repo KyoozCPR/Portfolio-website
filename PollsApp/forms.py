@@ -1,7 +1,8 @@
 from django import forms
-from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import get_user_model
+User = get_user_model()
 """
     Base class used to update each field of the form that is going to 
     inherit this base class with a specific HTML class 
@@ -53,20 +54,14 @@ class SignUpForm(forms.ModelForm, BaseForm):
     #when the is_valid() function is called, it is going to call the first three main methods for the field validation then the custom ones
     
 
-    def clean_confirmation_password(self):
-        password1 = self.cleaned_data.get('password')
-        password2 = self.cleaned_data.get('confirmation_password')
-
-        if password1 != password2:
-            raise ValidationError("Your passowrd is wrong!")
-
-
 
 
 
     def save(self, *args, **kwargs):
         if self.is_valid():
             user = super().save(commit=False, *args, **kwargs)
+            user.username = self.cleaned_data['username']
+            user.email = self.cleaned_data['email']
             user.set_password(self.cleaned_data.get("password"))
             return user.save()
             

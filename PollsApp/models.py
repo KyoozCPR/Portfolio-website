@@ -6,8 +6,8 @@ from django.core.exceptions import ValidationError
 
 def clean_email(value):
     if User.objects.filter(email__iexact=value).exists():
-        ValidationError("Your email address is already in use!")
-    return value
+       raise ValidationError("Your email address is already in use!", code="invalid")
+   
         
 
 

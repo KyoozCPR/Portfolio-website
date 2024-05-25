@@ -16,6 +16,9 @@
     {% for error in form.username.errors %}
         <div class="errorlist">{{ error }}</div>
     {% endfor %}
+    {% if session_message %}
+        <div class="errorlist">{{ session_message }}</div>
+    {% endif %}
 
     <div id="username">
         {{form.username}}
