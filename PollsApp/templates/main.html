@@ -82,11 +82,9 @@
                         </span>
                     </a>
                     </li>
-                
-                    <li><a href="">Contact</a></li>
-                    <li><a href="">Projects</a></li>
+                    <li><a href="{% url 'signup' %}">Sign up</a></li>
                     {% if request.user.is_authenticated %}
-                        {{ request.user.}}
+                        <li>{{ request.user.}}</li>
                     {% endif %}
 
 

@@ -80,6 +80,10 @@
         
     }
 
+    #login a{
+        text-decoration: none;
+    }
+
 </style>
 
 <div id="loginform">
@@ -93,8 +97,12 @@
             {% block content %}
             
             {% endblock %}
+            
 
         <br>
         <input id="sumbitbutton" type="submit" value="Submit">
+        {% block logsign %}
+            
+        {% endblock %}
     </form>
 </div>

@@ -53,12 +53,12 @@ class UserManagerCustom(BaseUserManager):
 class User(AbstractBaseUser):
 
     username = models.CharField(max_length=30, blank=False, unique=True)
-    email    = models.EmailField(max_length=150, blank=False, unique=True, validators=[clean_email], default="string")
+    email    = models.EmailField(max_length=150, blank=False, unique=True, validators=[clean_email])
     is_admin = models.BooleanField(default=False)
     objects  = UserManagerCustom()
 
 
-    USERNAME_FIELD = "email"
+    USERNAME_FIELD = "username"
     EMAIL_FIELD = "email"
     REQUIRED_FIELDS = []
 

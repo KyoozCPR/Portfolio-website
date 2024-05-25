@@ -6,7 +6,9 @@
 
 {% block content %}
 
-{{ not_authenticaded_message }}
+{% if request.session.Authenticated_Message %}
+        <p>{{ request.session.Authenticated_Message}}</p>
+{% endif %}
 
 
 {% csrf_token %}
@@ -16,9 +18,7 @@
     {% for error in form.username.errors %}
         <div class="errorlist">{{ error }}</div>
     {% endfor %}
-    {% if session_message %}
-        <div class="errorlist">{{ session_message }}</div>
-    {% endif %}
+    
 
     <div id="username">
         {{form.username}}
@@ -39,4 +39,13 @@
     </div>
 </div>
 
+
+{% endblock %}
+{% block logsign %}
+<div id="login">
+    <br>
+    <p>Already have an account? then<a href="{% url 'login' %}"> Log in</a></p>
+
+</div>
+            
 {% endblock %}

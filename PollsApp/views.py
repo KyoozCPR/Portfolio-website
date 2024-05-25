@@ -36,8 +36,8 @@ def signup(request: HttpRequest):
     """
 
     if request.user.is_authenticated == True:
-        request.session["Authenticated_Message": "You are already authenticated"]
-        shortcut.redirect("index")
+        request.session["Authenticated_Message"] = "You are already authenticated"
+        return shortcut.redirect("index")
 
 
     if request.method == "POST":
@@ -46,16 +46,9 @@ def signup(request: HttpRequest):
 
         if form.is_valid():
             user = form.save()
-            user.save()
-
-            authenticated_user = authenticate(
-                username = form.cleaned_data.get("username"), 
-                password = form.cleaned_data.get("password")
-                )
-
-            if authenticated_user is not None:
-                login(request, authenticated_user)
-                return shortcut.redirect('index')
+            login(request, user)
+            request.session['Authenticated_Message'] = 'Your account has been created successfully!'
+            return shortcut.redirect('index')
 
     else:
         form = SignUpForm()
@@ -71,7 +64,7 @@ def signup(request: HttpRequest):
 
 
 def login_func(request):
-    
+    not_authenticaded_message = None
     if request.method == "POST":
         form = LoginForm(request.POST)
         
