@@ -12,13 +12,16 @@
 
     {% endblock %}
 </head>
-<body id="bodywrapper">
+<body>
     <style>
-
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             min-height: 100vh;
             margin: 0;
             font-family: 'Poppins', sans-serif;
+    
     
         }
 
@@ -69,34 +72,37 @@
     
     </style>
     
-    
-    <nav>
-        <div class="navigation-container">
-                <img src="{% static 'images/logotech.png' %}" alt="">
-                <ul>
-                    <li><a href="{% url 'index' %}">Home</a></li>
-                    <li><a href="{% url 'about' %}">
-                    
-                        <span id="search" class="material-symbols-outlined">
-                            search
-                        </span>
-                    </a>
-                    </li>
-                    <li><a href="{% url 'signup' %}">Sign up</a></li>
-                    {% if request.user.is_authenticated %}
-                        <li>{{ request.user.}}</li>
-                    {% endif %}
+    <div id="bodywrapper">
+        <nav>
+            <div class="navigation-container">
+                    <img src="{% static 'images/logotech.png' %}" alt="">
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="#container-wrap">
+                        
+                            <span id="search" class="material-symbols-outlined">
+                                search
+                            </span>
+                        </a>
+                        </li>
+                        <li><a href="{% url 'signup' %}">Sign up</a></li>
+                        {% if request.user.is_authenticated %}
+                            <li>{{ request.user.}}</li>
+                        {% endif %}
 
 
-                    
-                </ul>
-            </div>
-    </nav>
-    
-    
 
-    {% block content %}
+                    </ul>
+                </div>
+        </nav>
+
+
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+    {% block about %}
     {% endblock %}
-
 </body>
 </html>

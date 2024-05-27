@@ -16,9 +16,6 @@ def index(request: HttpRequest):
     return shortcut.render(request, 'PollsApp/home/index.html')
 
 
-def about(request):
-    
-    return shortcut.render(request, 'PollsApp/about/about.html')
 
 
 def contacts(request):

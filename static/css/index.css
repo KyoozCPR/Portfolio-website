@@ -1,11 +1,13 @@
 
-
+#bodywrapper{
+    background-color: rgb(33, 33, 33);
+    color: white;
+}
 .Description #Name {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     margin-top: 5em;
 }
+
 .Description #Statement {
     display: flex;
     justify-content: center;
@@ -26,6 +28,7 @@
     padding: 10px 30px;
     border-radius: 10px;
     transition-duration: 0.4s;
+    margin-bottom: 5em;
 }
 
 .popup_selector #explore:hover {
@@ -97,4 +100,68 @@
     background-color: yellowgreen;
 
 
+}
+
+#gradient {
+    height: clamp(180px, 25vw, 400px);
+    background: rgb(33, 33, 33);
+    background: linear-gradient(180deg, rgba(33, 33, 33) 0%, rgba(60,60,60,1) 35%, rgba(255,255,255,1) 100%);
+}
+
+
+.about #title{
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    margin: 2em;
+}          
+p {
+    text-align: center;
+}
+#container-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container-wrap a {
+    font-style: none;
+}
+.container {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 3em;
+    margin-right: 1em;
+    width: 200px;
+    height: 200px;
+    border-radius: 25px;
+    opacity: 0.5;
+    background-color: #ffffff;
+
+}
+
+.container:hover {
+color: white;
+border-radius: 0px;
+background: linear-gradient(#4d9957, #ffd900);
+transition: 0.5s;
+opacity: 1;
+
+}
+
+.header-container {
+height: 20px;
+width: 200px;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+a {
+color: black;
+text-decoration: none;
 }

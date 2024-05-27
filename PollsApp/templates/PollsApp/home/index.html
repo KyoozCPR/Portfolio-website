@@ -33,36 +33,69 @@
     }
 
 </script>
+<div id="main-container-wrap">
+    <div class="Description">
 
-<div class="Description">
-
-    <h1 id="Name">Hello my name is Diego</h1>
-    <p id="Statement">I'm a student at Istituto Andrea Ponti di Gallarate and I code since i was 13 years old</p>
-</div>
-
-<div class="popup_selector">
-    <button id="explore" onclick="OpenPopup()">Explore</button>
-</div>
-
-
-
-<div id="popup" class="popup" style="display: none;">
-    <div id="popup-navigation">
-
-        <h3>Welcome to my portfolio!</h3>
-        <button id="close-popup" onclick="ClosePopup()">
-            <span class="material-symbols-outlined">close</span>
-        </button>
+        <h1 id="Name">Hello my name is <p style="color: yellowgreen; display:inline-block">Diego</p></h1>
+        <p id="Statement">I'm a student at Istituto Andrea Ponti di Gallarate and I code since i was 13 years old</p>
     </div>
 
-    <div id="start">
-   
-        <h4>Explore my github and my socials! <p>for future projects</p></h4>
-        <div id="explore">
-            <button id="explore-popup" onclick="explore()">Esplora</button>
+    <div class="popup_selector">
+        <button id="explore" onclick="OpenPopup()">Explore</button>
+    </div>
+
+
+
+    <div id="popup" class="popup" style="display: none">
+        <div id="popup-navigation">
+
+            <h3>Welcome to my portfolio!</h3>
+            <button id="close-popup" onclick="ClosePopup()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+
+        <div id="start">
+        
+            <h4>Explore my github and my socials! <p>for future projects</p></h4>
+            <div id="explore">
+                <button id="explore-popup" onclick="explore()">Esplora</button>
+            </div>
         </div>
     </div>
 </div>
+<div id="gradient"></div>
+{% endblock %}
+{% block about %}
+<div class="about">
+    <h1 id="title">An aspiring Software Engineer</h1>
+    <p>I always loved building computers and programming, that's why i want to eventually go to a computer science university</p>
+</div>
+    <p>one of my latest pc builds: </p>
 
+
+<section id="container-wrap">
+    <a href="https://github.com/KyoozCPR/BitBook">
+        <div class="container" id="container-1">
+          <div class="header-container">
+          BitBook
+          </div>
+        </div>
+      </a>
+      <a href="https://github.com/KyoozCPR/Discord-Bot-With-Python">
+        <div class="container" id="container-2">
+          <div class="header-container">
+          Discord
+          </div>
+        </div>
+      </a>
+      <a href="https://github.com/KyoozCPR/ComputerScience-homework">
+        <div class="container" id="container-3">
+          <div class="header-container">
+          Progetti Scolastici
+          </div>
+        </div>
+      </a>
+</section>
 {% endblock %}
 
