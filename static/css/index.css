@@ -9,8 +9,8 @@
 }
 
 .Description #Statement {
-    display: flex;
-    justify-content: center;
+    
+    text-align: center;
     font-size: 18px;
     margin-top: 3em;
 }
