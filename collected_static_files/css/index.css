@@ -8,10 +8,6 @@
     margin-top: 5em;
 }
 
-.Description #Name b{
-    color: yellowgreen
-
-}
 .Description #Statement {
     display: flex;
     justify-content: center;
@@ -126,6 +122,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10em;
 }
 
 #container-wrap a {
