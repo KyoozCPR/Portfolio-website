@@ -15,6 +15,37 @@
     margin-top: 3em;
 }
 
+
+#link{
+    position: relative;
+    font-weight: 800;
+    color: hsl(45 100% 70%);
+    z-index: 1;
+    
+}
+  
+#link::before {
+    z-index: -1;
+    background: hsl(0, 0%, 100%);
+    content: "";
+    inset: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease-in-out;
+  
+}
+  
+#link:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+#link:hover{
+    color:black;
+}
+  
+
 .popup_selector {
     display: flex;
     justify-content: center;
