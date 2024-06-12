@@ -20,7 +20,7 @@
     position: relative;
     font-weight: 800;
     color: hsl(45 100% 70%);
-    z-index: 1;
+    z-index: 0;
     
 }
   
@@ -94,6 +94,10 @@
     border-radius: 25px;
     background-color: #ffffff;
     transition-duration: 0.5s;
+    border: 3px solid rgb(255, 255, 255); 
+    display:flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -109,7 +113,7 @@
     text-align: center;
     font-size: 21px;
     font-weight: normal;
-    color: #89af4c;
+    color: #ffffff;
 }
 .popup #explore {
     margin-top: 5em;

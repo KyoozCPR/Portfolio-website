@@ -12,22 +12,19 @@
 
 {% block content %}
 <script>
+    
+
 
     function OpenPopup() {
-        let body_overlay = document.getElementById("bodywrapper");
-        let popup_element = document.getElementById("popup");
-        let navbar = document.getElementsByClassName("navigation-container");
-        popup_element.style = "display: block;";
-        body_overlay.style = "background-color: grey; opacity: 1;";
-        navbar.style = "background-color: grey; opacity: 1;";
+        const popup_element = document.getElementById("popup");
+        popup_element.style = "display: block; z-index: 1";
     }
     
     function ClosePopup() {
         const popup_element = document.getElementById("popup");
-        const bodywrapper = document.getElementById("bodywrapper");
-        bodywrapper.style = "backgroundColor: #FFFFF; opacity: none";
-        popup_element.style = "display: none;";
+        popup_element.style = "display: none; z-index: 0";
     }
+
     function explore() {
         location.href = "{% url 'contacts' %}";
     }
