@@ -3,11 +3,11 @@ from django.http import HttpResponse, HttpRequest,  Http404
 from django.core.exceptions import ObjectDoesNotExist
 from django.template import loader
 import django.contrib.sessions
-from django.contrib.auth import authenticate, login
-from .models import User 
+from django.contrib.auth import authenticate, login, get_user_model
+
 from .forms import SignUpForm, BaseForm, LoginForm
 
-
+user = get_user_model()
 
 
 
@@ -38,14 +38,18 @@ def signup(request: HttpRequest):
 
 
     if request.method == "POST":
-
         form = SignUpForm(request.POST)
 
         if form.is_valid():
             user = form.save()
+            print(user)
+
             login(request, user)
             request.session['Authenticated_Message'] = 'Your account has been created successfully!'
             return shortcut.redirect('index')
+        else:
+            print("Form is not valid")
+            print(form.errors)
 
     else:
         form = SignUpForm()
@@ -69,14 +73,12 @@ def login_func(request):
 
 
             authenticated_user = authenticate(
-            username = form.cleaned_data.get("username"), 
+            email = form.cleaned_data.get("email"), 
             password = form.cleaned_data.get("password")
             )
             if authenticated_user is not None:
                 login(request, authenticated_user)
-                return shortcut.redirect('index')
-            else: 
-                request.session["Notification_error"] = "You are not authenticated"
+                return shortcut.render(request, 'PollsApp/home/index.html')
 
     else:
         form = LoginForm()

@@ -29,10 +29,6 @@ class BaseForm(forms.Form):
 """
 
 class SignUpForm(forms.ModelForm, BaseForm):
-    confirmation_password = forms.CharField(
-                            widget=forms.PasswordInput(
-                                         attrs={'placeholder': "Confirm your password"}))
-
     class Meta:
         model = User 
         fields = ["username", "email", "password"]
@@ -63,8 +59,8 @@ class SignUpForm(forms.ModelForm, BaseForm):
             user.username = self.cleaned_data['username']
             user.email = self.cleaned_data['email']
             user.set_password(self.cleaned_data.get("password"))
-            return user.save()
-            
+            user.save()
+            return user
 
 
 
@@ -73,7 +69,7 @@ class LoginForm(BaseForm, forms.Form):
     username = forms.CharField(max_length=130,
                                widget=forms.TextInput(attrs={'placeholder': 'Enter your username'}))
     password = forms.CharField(max_length=128,
-                               widget=forms.PasswordInput(attrs={'placeholder': 'Enter your email'}))  
+                               widget=forms.PasswordInput(attrs={'placeholder': 'Enter your password'}))  
 
 
      

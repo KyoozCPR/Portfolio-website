@@ -25,8 +25,8 @@ class UserManagerCustom(BaseUserManager):
             raise ValueError("Can't create User without required fields!")
 
         
-        user = self.model(username, email)
-        self.normalize_email(email)
+        email = self.normalize_email(email)
+        user = self.model(username=username, email=email)
         user.set_password(password)
         user.save()
         return user
@@ -58,9 +58,8 @@ class User(AbstractBaseUser):
     objects  = UserManagerCustom()
 
 
-    USERNAME_FIELD = "username"
-    EMAIL_FIELD = "email"
-    REQUIRED_FIELDS = []
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ['username']
 
    
     
