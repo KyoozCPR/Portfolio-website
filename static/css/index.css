@@ -3,6 +3,16 @@
     background-color: rgb(33, 33, 33);
     color: white;
 }
+#allert{
+  
+    margin-top: 3em;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: hsl(45 100% 70%);
+    font-weight: 700;
+    
+}
+
 .Description #Name {
     text-align: center;
     margin-top: 5em;

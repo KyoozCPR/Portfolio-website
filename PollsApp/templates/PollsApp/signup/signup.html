@@ -6,9 +6,7 @@
 
 {% block content %}
 
-{% if request.session.Authenticated_Message %}
-        <p>{{ request.session.Authenticated_Message}}</p>
-{% endif %}
+
 
 
 {% csrf_token %}

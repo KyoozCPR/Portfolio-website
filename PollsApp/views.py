@@ -33,7 +33,7 @@ def signup(request: HttpRequest):
     """
 
     if request.user.is_authenticated == True:
-        request.session["Authenticated_Message"] = "You are already authenticated"
+        request.session["Authenticated_Message"] = "You are already authenticated! There's no need to signin again"
         return shortcut.redirect("index")
 
 
