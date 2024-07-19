@@ -33,7 +33,7 @@ def signup(request: HttpRequest):
     """
 
     if request.user.is_authenticated == True:
-        request.session["Authenticated_Message"] = "You are already authenticated! There's no need to signin again"
+        request.session["Authenticated_Message"] = "You are already authenticated! There's no need to signin again 😁"
         return shortcut.redirect("index")
 
 
@@ -108,6 +108,12 @@ def logout(request: HttpRequest):
 
 def greeting(request):
     pass
+
+
+def user_profile(request): 
+
+
+    return shortcut.render(request, 'PollsApp/user/user_profile.html')
 
 
 def search_user(request: HttpRequest, pk):
