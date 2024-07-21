@@ -1,11 +1,10 @@
 import django.shortcuts as shortcut
-from django.http import HttpResponse, HttpRequest,  Http404
+from django.http import HttpRequest,  Http404
 from django.core.exceptions import ObjectDoesNotExist
-from django.template import loader
 import django.contrib.sessions
-from django.contrib.auth import authenticate, login, get_user_model
-
-from .forms import SignUpForm, BaseForm, LoginForm
+from django.contrib.auth import authenticate, login, get_user_model, logout
+from django.contrib.auth.decorators import login_required
+from .forms import SignUpForm, LoginForm
 
 user = get_user_model()
 
@@ -79,7 +78,8 @@ def login_func(request):
             if authenticated_user is not None:
                 login(request, authenticated_user)
                 return shortcut.render(request, 'PollsApp/home/index.html')
-
+            else:
+                request.session['error-login'] = "There is no matching account with this credentials!"
     else:
         form = LoginForm()
 
@@ -94,22 +94,23 @@ def login_func(request):
         }
         )
 
-def logout(request: HttpRequest):
+def logout_view(request: HttpRequest):
 
-    signup_message = request.session.get("Authenticated_Message")
-
-    if signup_message != None:
-        return shortcut.render(request, 'PollsApp/home/index.html', {"allert" : signup_message})
+    logout(request)
+    request.session['logout-message'] = "You have been logged out!"
+    return shortcut.render(request, 'PollsApp/home/index.html')
     
   
   
-    return shortcut.render(request, "PollsApp/Login/login.html", {"form": form})
+    
 
 
 def greeting(request):
     pass
 
 
+
+@login_required
 def user_profile(request): 
 
 

@@ -65,9 +65,7 @@
         width: 200px;
     }
 
-    #password-section{
-        
-    }
+   
 
     
     
@@ -91,9 +89,13 @@
             <p>{{ request.user.email}}</p>
             <button class="section-mofidy">Edit</button>
         </div>
-        <div id="password-section">
+        <div>
             <p>Password and Verify</p>
             <button class="section-mofidy" id="main">Edit password</button>
+        </div>
+        <div>
+            <p>Log-out</p>
+            <a class="section-mofidy" id="main" href="{% url 'logout' %}">logout</a>
         </div>
     </div>
     

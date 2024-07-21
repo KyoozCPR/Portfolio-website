@@ -5,18 +5,15 @@
 {{ field.errors }}
 {% endfor %}
 
-{{ not_authenticaded_message }}
+{{ request.session.Authenticated_Message }}
 
 {% csrf_token %}
 <div class="fields">
-<div id="username">
-    {{form.username}}
-
-</div>
 <div id="email">
-    {{form.user_email}}
+    {{form.email}}
 
 </div>
+
 <div id="password">
 
     {{form.password}}

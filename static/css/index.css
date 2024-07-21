@@ -13,16 +13,18 @@
     
 }
 
+.Description {
+    margin-left: 25%;
+    
+}
+
 .Description #Name {
-    text-align: center;
     margin-top: 5em;
 }
 
 .Description #Statement {
-    
-    text-align: center;
     font-size: 18px;
-    margin-top: 3em;
+    margin-top: 1.5em;
 }
 
 

@@ -4,23 +4,24 @@
     color: white;
 }
 #allert{
-    width: 100%;
+  
     margin-top: 3em;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
     background-color: hsl(45 100% 70%);
     font-weight: 700;
     
 }
 
+.Description {
+    margin-left: 25%;
+}
+
 .Description #Name {
-    text-align: center;
     margin-top: 5em;
 }
 
 .Description #Statement {
-    
-    text-align: center;
     font-size: 18px;
     margin-top: 3em;
 }

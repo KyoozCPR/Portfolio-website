@@ -66,8 +66,8 @@ class SignUpForm(forms.ModelForm, BaseForm):
 
 
 class LoginForm(BaseForm, forms.Form):
-    username = forms.CharField(max_length=130,
-                               widget=forms.TextInput(attrs={'placeholder': 'Enter your username'}))
+    email = forms.EmailField(max_length=130,
+                               widget=forms.EmailInput(attrs={'placeholder': 'Enter your email'}))
     password = forms.CharField(max_length=128,
                                widget=forms.PasswordInput(attrs={'placeholder': 'Enter your password'}))  
 
