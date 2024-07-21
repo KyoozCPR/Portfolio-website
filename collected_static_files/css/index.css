@@ -13,17 +13,28 @@
     
 }
 
-.Description {
-    margin-left: 25%;
+.Description-wrapper {
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    
+    
 }
 
-.Description #Name {
+.Description-wrapper img {
+    border-radius: 50px;
+    margin-top: 25px;
+   
+}
+
+.Description-wrapper #Name {
     margin-top: 5em;
 }
 
-.Description #Statement {
+#Statement {
     font-size: 18px;
-    margin-top: 3em;
+    
 }
 
 
