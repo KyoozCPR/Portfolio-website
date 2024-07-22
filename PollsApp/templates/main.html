@@ -73,7 +73,29 @@
             color: #fff;
         }    
 
+        footer {
+            text-align: center;
+            font-size: 15px;
+            padding-top:70px;
+            padding-bottom: 60px;
+            background: rgb(255,224,51);
+            background: linear-gradient(230deg, rgba(255,224,51,1) 0%, rgba(101,168,30,1) 100%, rgba(0,0,0,1) 100%);
+        }
 
+        #quick-action{
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        #quick-action li{
+            margin-right: 50px;
+        }
+
+        #quick-action a{
+            text-decoration: none;
+        }
         
     
     </style>
@@ -83,7 +105,8 @@
                 <div class="navigation-container">
                     <ul>
                         <li><a href="{% url 'index' %}">Home</a></li>
-                        <li><a href="#container-wrap">
+                        <li><a href="#title">Projects</a></li>
+                        <li><a href="">
                         
                             <span id="search" class="material-symbols-outlined">
                                 search
@@ -111,5 +134,14 @@
         {% block about %}
         {% endblock %}
     </div>
+    <footer>
+        <p>@2024 Diego Ciprietti 🚀🎶</p>
+        <a>cipriettid949@gmail.com</a>
+        <ul id="quick-action">
+            <li><a>About me</a></li>
+            <li><a>Links</a></li>
+            <li><a>contact me</a></li>
+        </ul>
+    </footer>
 </body>
 </html>

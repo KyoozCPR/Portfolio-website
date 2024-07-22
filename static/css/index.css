@@ -1,4 +1,8 @@
-
+body{
+    min-height: 100vh;
+    display:flex;
+    flex-direction: column;
+}
 #bodywrapper{
     background-color: rgb(33, 33, 33);
     color: white;
@@ -71,13 +75,12 @@
 .popup_selector {
     display: flex;
     justify-content: center;
-    margin-top: 5em;
+    margin-top: 7.5em;
 }
 
 .popup_selector #explore {
     background-color: yellowgreen;
     border: 2px solid #89af4c;
-    font-size: 18px;
     padding: 10px 30px;
     border-radius: 10px;
     transition-duration: 0.4s;
