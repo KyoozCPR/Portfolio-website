@@ -33,6 +33,7 @@
     }
     
     .section-mofidy {
+       
         height: 40px;
         width: 80px;
         background-color: rgb(100, 100, 100);
@@ -43,6 +44,11 @@
     h4 {
         color: rgb(125, 125, 125);
         margin-bottom: 0px;
+    }
+
+    a{
+        text-decoration: none;
+        
     }
     
     #wrap-banner {
@@ -63,6 +69,12 @@
     #main {
         background-color: rgb(96, 143, 26);
         width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+  
+
     }
 
    
@@ -95,7 +107,9 @@
         </div>
         <div>
             <p>Log-out</p>
-            <a class="section-mofidy" id="main" href="{% url 'logout' %}">logout</a>
+            <a  href="{% url 'logout' %}">
+                <div class="section-mofidy" id="main"><p>logout</p></div>
+            </a>
         </div>
     </div>
     

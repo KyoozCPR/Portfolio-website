@@ -64,7 +64,7 @@ def signup(request: HttpRequest):
 
 
 def login_func(request):
-    not_authenticaded_message = None
+    request.session['errorlogin'] = None
     if request.method == "POST":
         form = LoginForm(request.POST)
         
@@ -79,7 +79,7 @@ def login_func(request):
                 login(request, authenticated_user)
                 return shortcut.render(request, 'PollsApp/home/index.html')
             else:
-                request.session['error-login'] = "There is no matching account with this credentials!"
+                request.session['errorlogin'] = "There is no matching account with this credentials!"
     else:
         form = LoginForm()
 

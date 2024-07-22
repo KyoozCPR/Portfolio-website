@@ -5,7 +5,10 @@
 {{ field.errors }}
 {% endfor %}
 
-{{ request.session.Authenticated_Message }}
+
+{% if request.session.errorlogin %}
+    {{ request.session.errorlogin}}
+{% endif %}
 
 {% csrf_token %}
 <div class="fields">
