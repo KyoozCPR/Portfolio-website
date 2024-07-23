@@ -1,7 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
 body{
     min-height: 100vh;
-    display:flex;
-    flex-direction: column;
+    
 }
 #bodywrapper{
     background-color: rgb(33, 33, 33);
@@ -169,15 +174,29 @@ body{
 }
 
 
+#gradient2 {
+    height: clamp(180px, 25vw, 400px);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgb(255, 255, 255) 0%, yellowgreen 35%, hsl(45, 75%, 55%));
+    
+}
+
+#about{
+    background-color: hsl(45, 75%, 55%);
+    height: 500px;
+}
+
 .about #title{
     display: flex;
     justify-content: center;
     font-family: 'Poppins', sans-serif;
     margin: 2em;
-}          
-p {
+}     
+
+.about p{
     text-align: center;
 }
+
 #container-wrap {
     display: flex;
     justify-content: center;
@@ -225,4 +244,19 @@ align-items: center;
 a {
 color: black;
 text-decoration: none;
+}
+
+#about {
+    margin-top: 0;
+}
+
+#about-title {
+    margin-left: 25%;
+
+}
+
+
+
+#about-description {
+    margin-left: 25%;
 }
