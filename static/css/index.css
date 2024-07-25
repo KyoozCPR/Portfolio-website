@@ -1,60 +1,60 @@
-* {
-    margin: 0;
-    padding: 0;
+
+a {
+    color: black;
+    text-decoration: none;
 }
 
 
-body{
-    min-height: 100vh;
-    
-}
 #bodywrapper{
     background-color: rgb(33, 33, 33);
     color: white;
 }
-#allert{
-  
-    margin-top: 3em;
-    margin-left: 10%;
-    margin-right: 10%;
+
+.custom-font {
+    font-family: "DM Serif Display", serif;
+}
+
+#allert{ 
+    margin-top: 3em 10%;
     background-color: hsl(45 100% 70%);
     font-weight: 700;
     
 }
 
-.Description-wrapper {
 
+.Description-wrapper {
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
-    
-    
 }
+
 
 .Description-wrapper img {
     border-radius: 50px;
     margin-top: 25px;
-   
 }
+
 
 .Description-wrapper #Name {
     margin-top: 5em;
 }
 
+
 #Statement {
-    font-size: 18px;
-    
+    font-size: 18px; 
 }
 
 
 #link{
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    font-size:22px;
     position: relative;
-    font-weight: 800;
     color: hsl(45 100% 70%);
     z-index: 0;
-    
 }
   
+
 #link::before {
     z-index: -1;
     background: hsl(0, 0%, 100%);
@@ -63,10 +63,10 @@ body{
     position: absolute;
     transform: scaleX(0);
     transform-origin: right;
-    transition: transform 0.5s ease-in-out;
-  
+    transition: transform 0.5s ease-in-out; 
 }
   
+
 #link:hover::before {
     transform: scaleX(1);
     transform-origin: left;
@@ -83,6 +83,7 @@ body{
     margin-top: 7.5em;
 }
 
+
 .popup_selector #explore {
     background-color: yellowgreen;
     border: 2px solid #89af4c;
@@ -91,6 +92,7 @@ body{
     transition-duration: 0.4s;
     margin-bottom: 5em;
 }
+
 
 .popup_selector #explore:hover {
     background-color: white;
@@ -110,12 +112,14 @@ body{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+
 #popup-navigation {
     display: flex;
     justify-content: space-evenly;
     font-size: 25px;
     color: #ffff;
 }
+
 
 #popup-navigation #close-popup {
     margin-top: 2em;
@@ -128,8 +132,8 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
-
 }
+
 
 #popup-navigation #close-popup:hover {
     background-color: #202124;
@@ -138,6 +142,7 @@ body{
     border: 3px solid yellowgreen; 
 }
 
+
 .popup #start h4{
     margin-top: 5em;
     text-align: center;
@@ -145,12 +150,15 @@ body{
     font-weight: normal;
     color: #ffffff;
 }
+
+
 .popup #explore {
     margin-top: 5em;
     display: flex;
     justify-content: center;
 
 }
+
 
 .popup #explore-popup {
     border-radius: 10px;
@@ -161,11 +169,13 @@ body{
     transition-duration: 0.5s;
 }
 
+
 .popup #explore-popup:hover {
     background-color: yellowgreen;
 
 
 }
+
 
 #gradient {
     height: clamp(180px, 25vw, 400px);
@@ -181,21 +191,29 @@ body{
     
 }
 
+
 #about{
     background-color: hsl(45, 75%, 55%);
     height: 500px;
 }
+
 
 .about #title{
     display: flex;
     justify-content: center;
     font-family: 'Poppins', sans-serif;
     margin: 2em;
-}     
+} 
+
+.about #title i {
+    color: yellowgreen;
+}
+
 
 .about p{
     text-align: center;
 }
+
 
 #container-wrap {
     display: flex;
@@ -204,9 +222,12 @@ body{
     margin-bottom: 10em;
 }
 
+
 #container-wrap a {
     font-style: none;
 }
+
+
 .container {
     font-weight: bold;
     display: flex;
@@ -220,43 +241,28 @@ body{
     border-radius: 25px;
     opacity: 0.5;
     background-color: #ffffff;
-
 }
+
 
 .container:hover {
-color: white;
-border-radius: 0px;
-background: linear-gradient(#4d9957, #ffd900);
-transition: 0.5s;
-opacity: 1;
-
+    color: white;
+    border-radius: 0px;
+    background: linear-gradient(#4d9957, #ffd900);
+    transition: 0.5s;
+    opacity: 1;
 }
+
 
 .header-container {
-height: 20px;
-width: 200px;
-display: flex;
-justify-content: center;
-align-items: center;
-
-}
-
-a {
-color: black;
-text-decoration: none;
-}
-
-#about {
-    margin-top: 0;
-}
-
-#about-title {
-    margin-left: 25%;
-
+    height: 20px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
-
-#about-description {
+#about-title, #about-description {
     margin-left: 25%;
 }
+

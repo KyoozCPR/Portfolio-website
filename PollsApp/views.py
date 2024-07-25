@@ -120,7 +120,7 @@ def user_profile(request):
 def search_user(request: HttpRequest, pk):
     if request.user.is_authenticated:
         try:
-            searched_user = User.objects.get(username_iexact=pk)  
+            searched_user = user.objects.get(username_iexact=pk)  
 
         except ObjectDoesNotExist:
             raise Http404("No MyModel matches the given query.")
