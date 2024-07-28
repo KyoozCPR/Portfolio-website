@@ -21,7 +21,10 @@ Before you begin, ensure you have the following installed on your local machine:
 4. Before running the project, apply the database migrations:
    ```bash
    python manage.py migrate
-5. Start the Django development server by running:
+5. And apply static files:
+   ```bash
+   python manage.py collectstatic
+6. Start the Django development server by running:
    ```bash
    python manage.py runserver
 Now you can view my website by entering this url : http://127.0.0.1:8000/
