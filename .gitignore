@@ -11,6 +11,7 @@ media/*
 *.py[cod]
 *$py.class
 
+
 # C extensions
 *.so
 
@@ -75,6 +76,7 @@ db.sqlite3
 **/__pycache__
 db.sqlite3
 media
+collected_static_files/
 
 # Backup files # 
 *.bak 

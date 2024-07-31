@@ -61,12 +61,40 @@ class User(AbstractBaseUser):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ['username']
 
+
+
+"""
+When we want to store additional information about a user 
+which is not related to authentication, 
+we can create a new model which has a one-to-one link with the user.
+creating a User Profile model with:
+    - one relationship with the user model
+    - a bio
+    - an image
+
+"""
+
+class Profile(models.Model): 
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    #the models.CASCADE means that if a user is deleted, it deletes also his profile as well
+    bio = models.TextField()
+    image = models.ImageField(upload_to="media")
+
+    def __str__(self):
+
+       return self.user.username
+       
+   
    
     
+
+
         
 
-
     
+    
+
+
 
 
     

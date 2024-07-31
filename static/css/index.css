@@ -107,13 +107,14 @@ a {
     height: 35em;
     width: 35em;
     border-radius: 25px;
-    background-color: #202124;
+    background-color: rgb(33, 33, 33);
     border: 1px solid #CCCCCC;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
 #popup-navigation {
+    margin-top: 2em;
     display: flex;
     justify-content: space-evenly;
     font-size: 25px;
@@ -122,7 +123,6 @@ a {
 
 
 #popup-navigation #close-popup {
-    margin-top: 2em;
     height: 40px;
     width: 40px;
     border-radius: 25px;

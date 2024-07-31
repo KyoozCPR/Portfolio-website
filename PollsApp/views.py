@@ -113,7 +113,6 @@ def greeting(request):
 @login_required
 def user_profile(request): 
     
-
     return shortcut.render(request, 'PollsApp/user/user_profile.html')
 
 
