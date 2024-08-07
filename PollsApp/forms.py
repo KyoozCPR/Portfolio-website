@@ -65,6 +65,7 @@ class SignUpForm(forms.ModelForm, BaseForm):
 
 
 
+
 class LoginForm(BaseForm, forms.Form):
     email = forms.EmailField(max_length=130,
                                widget=forms.EmailInput(attrs={'placeholder': 'Enter your email'}))
@@ -72,10 +73,8 @@ class LoginForm(BaseForm, forms.Form):
                                widget=forms.PasswordInput(attrs={'placeholder': 'Enter your password'}))  
 
 
-     
 
 
-    
 
 
  
