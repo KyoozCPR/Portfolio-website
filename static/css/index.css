@@ -112,8 +112,11 @@ a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+#password {
+    height: 20em;
+}
 
-#popup-navigation {
+.popup-navigation {
     margin-top: 2em;
     display: flex;
     justify-content: space-evenly;
@@ -122,7 +125,7 @@ a {
 }
 
 
-#popup-navigation #close-popup {
+.popup-navigation #close-popup {
     height: 40px;
     width: 40px;
     border-radius: 25px;
@@ -135,7 +138,7 @@ a {
 }
 
 
-#popup-navigation #close-popup:hover {
+.popup-navigation #close-popup:hover {
     background-color: #202124;
     color: #ffffff;
     padding: 4.5px;

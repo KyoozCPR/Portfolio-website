@@ -1,12 +1,13 @@
-
 function OpenPopup() {
-    const popup_element = document.getElementById("popup");
-    popup_element.style = "display: block; z-index: 1";
+    let popup_element = document.getElementsByClassName("popup");
+    let node= popup_element[0];
+    node.style = "display: block; z-index: 1";
 }
 
 function ClosePopup() {
-    const popup_element = document.getElementById("popup");
-    popup_element.style = "display: none; z-index: 0";
+    let popup_element = document.getElementsByClassName("popup");
+    let node= popup_element[0];
+    node.style = "display: none; z-index: 0";
 }
 
 function explore() {

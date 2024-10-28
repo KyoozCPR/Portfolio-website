@@ -93,6 +93,7 @@
         </div>
         <button class="section-mofidy main" >Change appearance</button>
     </div>
+        
     <div id="credentials">
         <h4>NOME UTENTE</h4>
         <div class="profile-section">
@@ -104,6 +105,7 @@
             <p>{{ request.user.email}}</p>
             <button class="section-mofidy">Edit</button>
         </div>
+    
         <div>
             <p>Password and Verify</p>
             <button class="section-mofidy main" onclick="OpenPopup()">Edit password</button>
@@ -114,21 +116,18 @@
                 <div class="section-mofidy main"><p>logout</p></div>
             </a>
         </div>
-        <div id="popup" class="popup" style="display: none">
-            <div id="popup-navigation">
+        <div class="popup" id="password" style="display: none">
+            <div class="popup-navigation">
     
                 <h3>Edit your password</h3>
                 <button id="close-popup" onclick="ClosePopup()">
                     <span class="material-symbols-outlined">close</span>
                 </button>
-            </div>
-           
-        
-                <h4>Explore my github and my socials! <p>for future projects</p></h4>
-                <div id="explore">
-                    <button id="explore-popup" onclick="explore()">Esplora</button>
-                </div>
-            
+                <form method="POST">
+                    {% csrf_token %}
+                    <input id="sumbitbutton" type="submit" value="Submit">
+                </form>
+            </div>    
         </div>
     </div>
     
