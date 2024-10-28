@@ -23,13 +23,6 @@ def contacts(request):
 
 def signup(request: HttpRequest):
 
-    """
-
-        CHECK IF THE FORM WAS SENT WITH THE POST METHOD AND 
-        CREATE A NEW ISTANCE OF THE SignUpForm() object PASSING THE DATA FROM THE REQUEST 
-        AND SAVE IT INTO THE DATABASE 
-
-    """
 
     if request.user.is_authenticated == True:
         request.session["Authenticated_Message"] = "You are already authenticated! There's no need to signin again 😁"
@@ -94,21 +87,13 @@ def login_func(request):
         }
         )
 
+
 def logout_view(request: HttpRequest):
 
     logout(request)
     request.session['logout-message'] = "You have been logged out!"
     return shortcut.render(request, 'PollsApp/home/index.html')
     
-  
-  
-    
-
-
-def greeting(request):
-    pass
-
-
 
 @login_required
 def user_profile(request): 

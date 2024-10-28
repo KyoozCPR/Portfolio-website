@@ -8,16 +8,7 @@ def clean_email(value):
     if User.objects.filter(email__iexact=value).exists():
        raise ValidationError("Your email address is already in use!", code="invalid")
    
-        
-
-
-
-"""
-
- Custom user manager used as an interface through a Queryset to make querys and create new users
-
- 
-"""
+    
 class UserManagerCustom(BaseUserManager):
 
     def create_user(self, username: models.CharField, email: models.EmailField, password: models.CharField=None):
