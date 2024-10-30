@@ -30,7 +30,7 @@ class SignUpForm(forms.ModelForm, BaseForm):
 
     def save(self, *args, **kwargs):
         if self.is_valid():
-            user = super().save(commit=False, *args, **kwargs)
+            user = super().save(commit=False)
             user.username = self.cleaned_data['username']
             user.email = self.cleaned_data['email']
             user.set_password(self.cleaned_data.get("password"))
