@@ -1,0 +1,79 @@
+#bodywrapper {
+    background-color: white;
+    color: black;
+}
+
+#user-text {
+    display: flex;
+    margin: 5em 20%;
+    padding: 1%;
+    flex-direction: column;
+    background-color: rgb(33, 33, 33);
+    border-radius: 15px;
+    color: #ffffff;
+}
+
+.profile-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    height: 100px;
+
+}
+
+#credentials {
+    background-color: rgb(53, 53, 53);
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 2em;
+
+
+}
+
+.section-mofidy {
+
+    height: 40px;
+    width: 80px;
+    background-color: rgb(100, 100, 100);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+
+.main {
+    background-color: rgb(96, 143, 26);
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+    margin-top: 1em;
+}
+
+
+h4 {
+    color: rgb(125, 125, 125);
+    margin-bottom: 0px;
+}
+
+a {
+    text-decoration: none;
+
+}
+
+#wrap-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#banner {
+    display: flex;
+
+}
+
+#username {
+    margin-left: 20px;
+}
