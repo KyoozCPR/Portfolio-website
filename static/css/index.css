@@ -286,8 +286,7 @@ a {
 
 
 .about #title {
-    display: flex;
-    justify-content: center;
+    text-align:center;
     font-family: 'Poppins', sans-serif;
     margin: 2em;
 }
@@ -356,5 +355,23 @@ a {
 #about-title, #about-description {
     margin-left: 20%;
     margin-right: 10%;
+}
+
+
+@media screen and (max-width: 710px){
+    #container-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10em;
+    }
+
+    .Description-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
 }
 
