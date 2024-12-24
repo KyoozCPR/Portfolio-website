@@ -12,7 +12,7 @@ def clean_email(value):
 class UserManagerCustom(BaseUserManager):
 
     def create_user(self, username: models.CharField, email: models.EmailField, password: models.CharField=None):
-        if not(username) or not(email):
+        if not username or not email:
             raise ValueError("Can't create User without required fields!")
 
         
@@ -24,7 +24,7 @@ class UserManagerCustom(BaseUserManager):
     
 
     def create_superuser(self, username, email, password=None):
-        if not(username) or not(email):
+        if not username or not email:
             raise ValueError("Can't create User without required fields!")
 
         

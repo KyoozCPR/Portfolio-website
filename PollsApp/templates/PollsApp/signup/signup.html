@@ -1,16 +1,13 @@
 {% extends 'login_signup.html' %}
 
-
-
-
-
 {% block content %}
-
-
-
-
+    
 {% csrf_token %}
-
+    {% if not request.user.is_authenticated %}
+        <div id="allert">
+            <p class="errorlist"> {{ request.session.Notification_error}}</p>
+        </div>
+    {%endif%}
 
 <div class="fields">
     {% for error in form.username.errors %}
