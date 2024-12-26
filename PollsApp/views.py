@@ -23,7 +23,6 @@ def contacts(request):
 
 def signup(request: HttpRequest):
 
-
     if request.user.is_authenticated:
         request.session["Authenticated_Message"] = "You are already authenticated! There's no need to signin again 😁"
         return shortcut.redirect("index")
@@ -103,12 +102,13 @@ def user_profile(request):
 
 def search_user(request: HttpRequest, pk):
     if request.user.is_authenticated:
+
         try:
             searched_user = user.objects.get(username_iexact=pk)  
 
         except ObjectDoesNotExist:
             raise Http404("No MyModel matches the given query.")
     else:
-        request.session["Notification_error"] = "You need to log in to see this page!"
+
         return shortcut.redirect("signup")
     
