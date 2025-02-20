@@ -2,6 +2,7 @@ function OpenPopup() {
     let popup_element = document.getElementsByClassName("popup");
     let node= popup_element[0];
     node.style = "display: block; z-index: 1";
+    document.getElementsByTagName("body").style = "background-color: black; opacity: 0.5";
 }
 
 function ClosePopup() {

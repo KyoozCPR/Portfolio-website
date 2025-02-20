@@ -65,15 +65,53 @@ a {
 #wrap-banner {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 
 }
 
 #banner {
     display: flex;
-
+    align-items: center;
 }
 
 #username {
     margin-left: 20px;
+}
+
+body #password {
+    height: auto;
+}
+
+#password-input {
+    padding-left: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.credentials-input {
+    padding: 10px;
+    width: 60%;
+}
+
+#submitbutton {
+    margin-top: 3em;
+    padding: 10px;
+    background-color: #608f1a;
+    width: 30%;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    margin-bottom: 2em;
+
+}
+label {
+    margin-bottom: 1em;
+    margin-top: 2em;
+
+}
+
+#submitbutton:hover {
+    background-color: white;
+    color: black;
+    transition-duration: 0.3s;
 }

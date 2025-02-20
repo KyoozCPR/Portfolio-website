@@ -201,9 +201,9 @@ a {
 }
 
 .popup-navigation {
-    margin-top: 2em;
+    margin: 0.5em;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     font-size: 25px;
     color: #ffff;
 }
