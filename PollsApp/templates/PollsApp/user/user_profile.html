@@ -48,12 +48,14 @@
             </div>  
             <form method="POST">
             <div id="password-input">
+            
                     
-                        <label>Current Password</label>
-                        <input class="credentials-input" type="password" placeholder="Insert your new password">
-                        
-                        <label>New  Password</label>
-                        <input class="credentials-input" type="password" placeholder="Insert your new password">
+                        {% for field in form %}
+                            {{ field.errors }}
+                        {% endfor %}
+                        {{ form.old_password }}
+                        {{ form.new_password1 }}
+                        {{ form.new_password2 }}
                         <i style="margin-top: 1em;font-size: 13px">Minimum 8-characters</i>
                         
                         {% csrf_token %}

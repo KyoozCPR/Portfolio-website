@@ -80,17 +80,19 @@ a {
 
 body #password {
     height: auto;
+    width: 25em;
 }
 
 #password-input {
-    padding-left: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
     display: flex;
     flex-direction: column;
 }
 
 .credentials-input {
     padding: 10px;
-    width: 60%;
+
 }
 
 #submitbutton {

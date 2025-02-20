@@ -5,6 +5,7 @@ import django.contrib.sessions
 from django.contrib.auth import authenticate, login, get_user_model, logout
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm, LoginForm
+from django.contrib.auth.forms import PasswordChangeForm
 
 user = get_user_model()
 
@@ -95,9 +96,19 @@ def logout_view(request: HttpRequest):
     
 
 @login_required
-def user_profile(request): 
-    
-    return shortcut.render(request, 'PollsApp/user/user_profile.html')
+def user_profile(request: HttpRequest):
+    if request.method == "POST":
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user.set_password(form.cleaned_data["<PASSWORD>"])
+            user.save()
+            request.session['authenticated_message'] = "Your account has been updated successfully!"
+            return shortcut.redirect("user-profile")
+    else:
+        form = PasswordChangeForm(request.user)
+
+    return shortcut.render(request, 'PollsApp/user/user_profile.html', {"form": form})
+
 
 
 def search_user(request: HttpRequest, pk):
